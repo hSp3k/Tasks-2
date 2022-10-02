@@ -3,27 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utility;
 
 namespace Task5.Source
 {
     internal static class UtilityTask5
     {
-        internal static void DeletingArrayElements(ref int[] array)
+        internal static int[] DeletingElements(int[] array)
         {
-            int length = array.Length;
-            for (int iIndx = 0; iIndx < length; iIndx++)
+            int c = 0;
+            int[] tempArray = new int[array.GetLength(0) - ArrayUtility.CountNegativeElements(array)];
+            for (int iIndx = 0; iIndx < array.GetLength(0); iIndx++)
             {
-                if (array[iIndx] < 0)
+                if (array[iIndx] >= 0)
                 {
-                    for (int jIndx = iIndx; jIndx < length - 1; jIndx++)
-                    {
-                        array[jIndx] = array[jIndx + 1];
-                    }
-                    length--;
-                    iIndx--;
+                    tempArray[iIndx - c] = array[iIndx];
+                    continue;
                 }
+                c++;
             }
-            array = array[..length];
+            return tempArray;
         }
     }
 }

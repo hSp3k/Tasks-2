@@ -6,17 +6,13 @@ namespace Task5
 {
     internal class Program
     {
-        private static int _lengthArray = 10;
-        private static int[] _randomRange = { -100, 50 };
+        private const int _lengthArray = 10;
 
         internal static void Main(string[] args)
         {
-            int[] array = new int[_lengthArray];
-            ArrayUtility.FillArray(ref array, _randomRange);
+            int[] array = ArrayUtility.CreateArray(_lengthArray);
             ArrayUtility.WriteArray(array, "Массив : ");
-
-            UtilityTask5.DeletingArrayElements(ref array);
-            ArrayUtility.WriteArray(array, "Измененный Массив : ");
+            ArrayUtility.WriteArray(UtilityTask5.DeletingElements(array), "Измененный Массив : ");
         }
     }
 }

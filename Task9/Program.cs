@@ -7,20 +7,20 @@ namespace Task9
 {
     internal class Program
     {
-        private static uint _lengthArray = 3;
+        private const int _lengthArray = 3;
 
         internal static void Main(string[] args)
         {
-            int[] array1 = new int[_lengthArray];
-            int[] array2 = new int[_lengthArray];
-
-            UtilityTask9.FillInAnArrayFromTheKeyboard(ref array1, "Ввод массива '1' : ");
-            UtilityTask9.FillInAnArrayFromTheKeyboard(ref array2, "Ввод массива '2' : ");
+            int[] array1 = UtilityTask9.CreateArray(_lengthArray);
+            int[] array2 = UtilityTask9.CreateArray(_lengthArray);
 
             ArrayUtility.WriteArray(array1, "Массив '1' : ");
             ArrayUtility.WriteArray(array2, "Массив '2' : ");
-            
-            if(UtilityTask9.CheckingForEqualityArrays(array1, array2) == true)
+
+            Array.Sort(array1);
+            Array.Sort(array2);
+
+            if (array1 == array2)
             {
                 Console.WriteLine("Массивы Эквивалентны друг другу.");
                 return;

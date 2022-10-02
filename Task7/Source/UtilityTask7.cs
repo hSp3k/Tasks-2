@@ -9,26 +9,9 @@ namespace Task7.Source
 {
     internal static class UtilityTask7
     {
-        internal static void BubbleSorting(ref int[] array)
+        internal static int[] CreateArray(int lengthArray)
         {
-            for (int iIndx = 0; iIndx < array.GetLength(0); iIndx++)
-            {
-                for (int jIndx = iIndx + 1; jIndx < array.GetLength(0); jIndx++)
-                {
-                    if (array[iIndx] < array[jIndx])
-                    {
-                        int tempVariable = array[iIndx];
-                        array[iIndx] = array[jIndx];
-                        array[jIndx] = tempVariable;
-                    }
-                }
-            }
-        }
-
-        internal static void FillInAnArrayFromTheKeyboard(ref int[] array, string text = "")
-        {
-            Console.WriteLine(text);
-            Random randomGenerator = new Random();
+            int[] array = new int[lengthArray];
             for (int indx = 0; indx < array.Length; indx++)
             {
                 Console.Write($"indx = {indx} >> element = ");
@@ -39,6 +22,7 @@ namespace Task7.Source
                 }
             }
             Console.WriteLine();
+            return array;
         }
     }
 }

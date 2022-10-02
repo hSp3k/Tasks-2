@@ -5,16 +5,16 @@ namespace Task2
 {
     internal class Program
     {
-        private static int[] _lengthArray = { 5, 3, 4 };
-        private static int[] _randomRange = { -10, 50 };
+        private const int _lengthArray1 = 5;
+        private const int _lengthArray2 = 4;
+        private const int _lengthArray3 = 3;
 
         internal static void Main(string[] args)
         {
-            int[,,] array = new int[_lengthArray[0], _lengthArray[1], _lengthArray[2]];
-            UtilityTask2.FillArray(ref array, _randomRange);
+            int[,,] array = UtilityTask2.CreateArray(_lengthArray1, _lengthArray2, _lengthArray3);
             UtilityTask2.WriteArray(array, "Массив : ");
 
-            UtilityTask2.EditArray(ref array);
+            UtilityTask2.ReplacePositive(array);
             UtilityTask2.WriteArray(array, "Измененный Массив : ");
         }
     }

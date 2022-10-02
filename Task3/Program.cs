@@ -6,15 +6,13 @@ namespace Task3
 {
     internal class Program
     {
-        private static int _lengthArray = 10;
-        private static int[] _randomRange = { -10, 50 };
+        private const int _lengthArray = 10;
 
         internal static void Main(string[] args)
         {
-            int[] array = new int[_lengthArray];
-            ArrayUtility.FillArray(ref array, _randomRange);
+            int[] array = ArrayUtility.CreateArray(_lengthArray);
             ArrayUtility.WriteArray(array, "Массив : ");
-            Console.WriteLine($"Сумма : {UtilityTask3.SumOfTheArrayElements(array)}");
+            Console.WriteLine($"Сумма : {UtilityTask3.SumPositive(array)}");
         }
     }
 }

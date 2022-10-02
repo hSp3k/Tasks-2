@@ -5,15 +5,14 @@ namespace Task4
 {
     internal class Program
     {
-        private static int[] _lengthArray = { 5, 5 };
-        private static int[] _randomRange = { -10, 50 };
+        private const int _lengthArray1 = 5;
+        private const int _lengthArray2 = 5;
 
         internal static void Main(string[] args)
         {
-            int[,] array = new int[_lengthArray[0], _lengthArray[1]];
-            UtilityTask4.FillArray(ref array, _randomRange);
+            int[,] array = UtilityTask4.CreateArray(_lengthArray1, _lengthArray2);
             UtilityTask4.WriteArray(array, "Массив : ");
-            Console.WriteLine($"Сумма : {UtilityTask4.SumOfTheArrayElements(array)}");
+            Console.WriteLine($"Сумма : {UtilityTask4.SumEvenPositions(array)}");
         }
     }
 }

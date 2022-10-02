@@ -8,8 +8,12 @@ namespace Task2.Source
 {
     internal static class UtilityTask2
     {
-        internal static void FillArray(ref int[,,] array, int[] randomRange)
+        private const int _randomRangeStart = -10;
+        private const int _randomRangeEnd = 50;
+
+        internal static int[,,] CreateArray(int _lengthArray1, int _lengthArray2, int _lengthArray3)
         {
+            int[,,] array = new int[_lengthArray1, _lengthArray2, _lengthArray3];
             Random randomGenerator = new Random();
             for (int iIndx = 0; iIndx < array.GetLength(0); iIndx++)
             {
@@ -17,10 +21,11 @@ namespace Task2.Source
                 {
                     for (int kIndx = 0; kIndx < array.GetLength(2); kIndx++)
                     {
-                        array[iIndx, jIndx, kIndx] = randomGenerator.Next(randomRange[0], randomRange[1]);
+                        array[iIndx, jIndx, kIndx] = randomGenerator.Next(_randomRangeStart, _randomRangeEnd);
                     }
                 }
             }
+            return array;
         }
 
         internal static void WriteArray(int[,,] array, string text = "")
@@ -36,14 +41,14 @@ namespace Task2.Source
                     {
                         Console.Write(array[iIndx, jIndx, kIndx] + ", ");
                     }
-                    Console.Write(" }" );
+                    Console.Write(" }");
                 }
                 Console.WriteLine(" } ");
             }
             Console.WriteLine("} ");
         }
 
-        internal static void EditArray(ref int[,,] array)
+        internal static void ReplacePositive(int[,,] array)
         {
             for (int iIndx = 0; iIndx < array.GetLength(0); iIndx++)
             {

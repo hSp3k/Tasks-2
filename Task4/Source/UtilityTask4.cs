@@ -8,16 +8,21 @@ namespace Task4.Source
 {
     internal static class UtilityTask4
     {
-        internal static void FillArray(ref int[,] array, int[] randomRange)
+        private const int _randomRangeStart = -10;
+        private const int _randomRangeEnd = 50;
+
+        internal static int[,] CreateArray(int _lengthArray1, int _lengthArray2)
         {
+            int[,] array = new int[_lengthArray1, _lengthArray2];
             Random randomGenerator = new Random();
-            for (int iIndx = 0; iIndx < array.GetLength(0); iIndx++)
+            for (int iIndx = 0; iIndx < _lengthArray1; iIndx++)
             {
-                for (int jIndx = 0; jIndx < array.GetLength(1); jIndx++)
+                for (int jIndx = 0; jIndx < _lengthArray2; jIndx++)
                 {
-                    array[iIndx, jIndx] = randomGenerator.Next(randomRange[0], randomRange[1]);
+                    array[iIndx, jIndx] = randomGenerator.Next(_randomRangeStart, _randomRangeEnd);
                 }
             }
+            return array;
         }
 
         internal static void WriteArray(int[,] array, string text = "")
@@ -35,8 +40,9 @@ namespace Task4.Source
             Console.WriteLine("} ");
         }
 
-        internal static int SumOfTheArrayElements(int[,] array, int sum = 0)
+        internal static int SumEvenPositions(int[,] array)
         {
+            int sum = 0;
             for (int iIndx = 0; iIndx < array.GetLength(0); iIndx++)
             {
                 for (int jIndx = 0; jIndx < array.GetLength(1); jIndx++)

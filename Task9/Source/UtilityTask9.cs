@@ -9,41 +9,23 @@ namespace Task9.Source
 {
     internal static class UtilityTask9
     {
-        internal static bool CheckingForEqualityArrays(int[] array1, int[] array2)
+        public static int[] CreateArray(int lengthArray)
         {
-            int count = 0;
-            for (int iIndx = 0; iIndx < array1.GetLength(0); iIndx++)
-            {
-                for (int jIndx = 0; jIndx < array2.GetLength(0); jIndx++)
-                {
-                    if (array1[iIndx] == array2[jIndx])
-                    {
-                        count++;
-                        break;
-                    }
-                }
-            }
-            return count == array1.GetLength(0);
-        }
-
-        public static void FillInAnArrayFromTheKeyboard(ref int[] array, string text = "")
-        {
-            Console.WriteLine(text);
+            int[] array = new int[lengthArray];
+            int element;
             Random randomGenerator = new Random();
-            for (int indx = 0; indx < array.Length; indx++)
+            for (int indx = 0; indx < lengthArray; indx++)
             {
-                Console.Write($"indx = {indx} >> element = ");
-                if (int.TryParse(Console.ReadLine(), out array[indx]) == false)
+                Console.Write($"indx = {indx}, element = ");
+                if(int.TryParse(Console.ReadLine(), out element) == false)
                 {
-                    Console.WriteLine("\nНе верно введено число\nПопробуйте еще раз.\n");
+                    Console.WriteLine("\nВходные данные имели не подходящий символ.");
+                    Console.WriteLine("Попробуйте еще раз...\n");
                     indx--;
-                }
-                else if(ArrayUtility.FindElementInArray(array[indx], array[..indx]) == true)
-                {
-                    Console.WriteLine("\nТакое число уже существует в данном наборе\nПопробуйте еще раз.\n");
-                    indx--;
+                    continue;
                 }
             }
+            return array;
         }
     }
 }

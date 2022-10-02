@@ -6,19 +6,17 @@ namespace Task1
 {
     internal class Program
     {
-        private static int _lengthArray = 10;
-        private static int[] _randomRange = { -10, 50 };
+        private const int _lengthArray = 10;
 
         internal static void Main(string[] args)
         {
-            int[] array = new int[_lengthArray];
-            ArrayUtility.FillArray(ref array, _randomRange);
+            int[] array = ArrayUtility.CreateArray(_lengthArray);
             ArrayUtility.WriteArray(array, "Массив : ");
 
             Console.WriteLine($"Min значение : {UtilityTask1.GetMinValue(array)}");
             Console.WriteLine($"Max значение : {UtilityTask1.GetMaxValue(array)}");
 
-            UtilityTask1.QuickSorting(ref array, 0, _lengthArray - 1);
+            UtilityTask1.QuickSorting(array);
             ArrayUtility.WriteArray(array, "Отсортированный Массив : ");
         }
     }
