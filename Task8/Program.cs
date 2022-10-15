@@ -6,7 +6,7 @@ namespace Task8
 {
     internal class Program
     {
-        private static int _lengthArray = 10;
+        private static int _lengthArray;
 
         internal static void Main(string[] args)
         {
@@ -24,7 +24,11 @@ namespace Task8
             int[] array = ArrayUtility.CreateArray(_lengthArray);
             ArrayUtility.WriteArray(array, "Массив : ");
 
-            UtilityTask8.NumberOfOccurrences(array);
+            Console.Write("Ввежите элемент, который хотите найти: ");
+            if(int.TryParse(Console.ReadLine(), out int value))
+            {
+                UtilityTask8.WriteNumberOfOccurrences(array, value);
+            }
         }
     }
 }
