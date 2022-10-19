@@ -7,12 +7,11 @@ namespace Task9
 {
     internal class Program
     {
-        private const int _lengthArray = 3;
-
         internal static void Main(string[] args)
         {
-            int[] array1 = UtilityTask9.CreateArray(_lengthArray);
-            int[] array2 = UtilityTask9.CreateArray(_lengthArray);
+            const int lengthArray = 3;
+            int[] array1 = UtilityTask9.CreateArray(lengthArray);
+            int[] array2 = UtilityTask9.CreateArray(lengthArray);
 
             ArrayUtility.WriteArray(array1, "Массив '1' : ");
             ArrayUtility.WriteArray(array2, "Массив '2' : ");
@@ -23,9 +22,11 @@ namespace Task9
             if (array1 == array2)
             {
                 Console.WriteLine("Массивы Эквивалентны друг другу.");
-                return;
             }
-            Console.WriteLine("Массивы НЕ Эквивалентны друг другу.");
+            else
+            {
+                Console.WriteLine("Массивы НЕ Эквивалентны друг другу.");
+            }
         }
     }
 }

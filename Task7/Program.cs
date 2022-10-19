@@ -6,22 +6,21 @@ namespace Task7
 {
     internal class Program
     {
-        private static int _lengthArray;
-
         internal static void Main(string[] args)
         {
+            int lengthArray;
             Console.Write("Введите количество элементов массива : ");
-            if (int.TryParse(Console.ReadLine(), out _lengthArray) == false)
+            if (int.TryParse(Console.ReadLine(), out lengthArray) == false)
             {
                 Console.WriteLine("Входные данные имели не подходящий символ.");
                 return;
             }
-            if (_lengthArray < 0)
+            if (lengthArray < 0)
             {
                 Console.WriteLine("Длина не может быть меньше нуля.");
                 return;
             }
-            int[] array = UtilityTask7.CreateArray(_lengthArray);
+            int[] array = UtilityTask7.CreateArray(lengthArray);
             ArrayUtility.WriteArray(array, "Массив : ");
 
             Array.Sort(array);
